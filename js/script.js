@@ -6,7 +6,7 @@ project 1 - A Random Quote Generator
 ******************************************/
 
 
-//global variable array with quote objects
+//global variable array with quote objects, with the keys - quote, source, year and citation
 
 let quotes = [
   {
@@ -55,21 +55,26 @@ function printQuote() {
   var randomQuote = getRandomQuote();
   var printingString = '';
   printingString += '<p class="quote">' + randomQuote.quote + '</p>' + '<p class="source">' + randomQuote.source;
+
+  //conditinal statements in case of citation or year lacking
   if (randomQuote.citation) {
     printingString += '<span class="citation">' + randomQuote.citation + '</span>';
   }
   if (randomQuote.year) {
     printingString += '<span class="year">' + randomQuote.year + ' </span>';
   }
+
+  //closing the paragraph
   printingString += '</p>';
 
+  //checking the variable on the console. Should remain in comment
   //console.log(printingString)
+
+
   const stringElement = document.querySelector('#quote-box');
   stringElement.innerHTML = printingString;
 
 }
-
-
 
 
 //DOM connection to HTML to activate the button on page
